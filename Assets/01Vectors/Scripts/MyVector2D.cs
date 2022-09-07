@@ -8,6 +8,29 @@ public struct MyVector2D
     public float x;
     public float y;
 
+    public float magnitude
+    {
+        get 
+        { 
+            return Mathf.Sqrt(x * x + y * y); 
+        }
+    }
+
+    public MyVector2D normalized
+    {
+        get
+        {
+            float m = magnitude;
+
+            if(m <= 0.0001f)
+            {
+                return new MyVector2D(0f, 0f);
+            }
+
+            return new MyVector2D(x / m, y / m);
+        }
+    }
+
     // - CONSTRUCTORES -
     //Crea al vector con un componente 'x' y un componente 'y'
     public MyVector2D(float x, float y)
@@ -48,6 +71,24 @@ public struct MyVector2D
             );
 
         return d;
+    }
+
+    //Muta al vector para que quede normalizado
+    public void Normalize()
+    {
+        float tolerance = 0.0001f;
+        float m = magnitude;
+
+        if(m <= tolerance)
+        {
+            x = 0; y = 0;
+
+            return;
+        }
+
+        x /= m;
+        y /= m;
+
     }
 
     // - DEBUG -
@@ -106,8 +147,16 @@ public struct MyVector2D
     public static MyVector2D operator *(MyVector2D b, float a)
     {
         return new MyVector2D(
-            a * b.x,
-            a * b.y
+            b.x * a,
+            b.y * a
+            );
+    }
+
+    public static MyVector2D operator /(MyVector2D b, float a)
+    {
+        return new MyVector2D(
+            b.x / a,
+            b.y / a
             );
     }
 }
