@@ -573,9 +573,9 @@ MonoBehaviour:
   wind:
     x: 1
     y: 0
-  gravity:
+  planetGravity:
     x: 0
-    y: -5
+    y: 0
   frictionCoefficient: 0.422
   dragCoefficient: 0
   mass: 1
@@ -819,12 +819,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceMode: 0
   wind:
-    x: 1
+    x: 0.3
     y: 0
-  gravity:
+  planetGravity:
     x: 0
     y: -5
-  frictionCoefficient: 0.838
+  frictionCoefficient: 0
   dragCoefficient: 0
   mass: 1
   secondMass: {fileID: 0}
@@ -1165,7 +1165,7 @@ MonoBehaviour:
   wind:
     x: 0
     y: 0
-  gravity:
+  planetGravity:
     x: 0
     y: -5
   frictionCoefficient: 0
@@ -1279,7 +1279,7 @@ MonoBehaviour:
   wind:
     x: 0
     y: 0
-  gravity:
+  planetGravity:
     x: 0
     y: -5
   frictionCoefficient: 0
